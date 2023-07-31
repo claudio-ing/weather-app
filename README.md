@@ -1,6 +1,7 @@
 # weather-app
 
-Created with vue-cli interface adding typescript support: 
+Created with vue-cli interface adding [typescript plugin](https://cli.vuejs.org/core-plugins/typescript.html):
+
 
 ```
 vue add typescript
