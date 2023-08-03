@@ -6,7 +6,7 @@ The app consist in just two pages, whose routes are managed using [vue-router](h
 
 Geo locations are saved in the local storage and live through different sessions. Weather data are stored using [pinia](https://pinia.vuejs.org/) to optimize API calls and are valid for the single session;
 
-Some component and utility function tests were configured with [jest](https://jestjs.io/) and [vue-test-utils](https://test-utils.vuejs.org/guide/).
+Some component and utility function tests were set up with [jest](https://jestjs.io/) and [vue-test-utils](https://test-utils.vuejs.org/guide/).
 
 ## Project setup
 ```

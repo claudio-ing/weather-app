@@ -52,7 +52,6 @@ function clearField() {
 }
 
 async function isValidLocation(): Promise<boolean> {
-  // console.log('Calling geo api with:', location.value, ' ...');
   currentGeo.value = await api.getGeoCoordinates(location.value);
   return currentGeo.value !== undefined;
 }
