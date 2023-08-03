@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="368">
+  <v-card class="mx-auto">
     <v-card-title>{{widgetTitle}}</v-card-title>
     <v-card-subtitle v-if="isExtremeWeather">
       <v-icon icon="mdi-alert" size="36" color="error" class="me-1 pb-1"></v-icon>
@@ -8,7 +8,7 @@
     <v-card-text>
       <div class="d-flex weather-detail">
         <img :src="getIconUrl" height="72" width="72" alt="Weather icon"/>
-        <strong class="size-temp middle pl-2">{{currentTemperature}}&deg;C</strong>
+        <strong class="text-h2 middle pl-2">{{currentTemperature}}&deg;C</strong>
       </div>
       <v-row >
         <v-col cols="12">{{feelsLikeInfo}}&deg;C. {{weatherInfo}}. {{windInfo}}.
@@ -27,14 +27,13 @@
 <script setup lang='ts'>
 import { computed, toRef } from 'vue';
 import { WeatherData } from '@/common/types';
-import { capitalizeFirst, formatWindDirection, formatWindStrength } from '../utils';
+import { capitalizeFirst, formatWindDirection, formatWindStrength } from '@/common/utils';
 
 const props = defineProps<{
     weather: WeatherData;
 }>();
 
-const wData = toRef(props, 'weather');
-const w = wData.value;
+const w = toRef(props, 'weather').value;
 
 // API v3.0 is giving 401 Errors, so I switched to v2.5. Alerts data are not available in v2.5
 // 20.8 m/s+ ~ Strong gale or worse in Beaufort scale
@@ -61,9 +60,6 @@ const currentVisibility = computed((): string => (w.visibility / 1000).toFixed(1
 <style scoped>
 .middle {
     vertical-align: middle;
-}
-.size-temp {
-    font-size: 36px;
 }
 .weather-detail {
     line-height: 72px;

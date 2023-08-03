@@ -35,10 +35,9 @@ import {
   ref, Ref, reactive, watch,
 } from 'vue';
 import { LocationData } from '@/common/types';
-import { loadStorageData, updateStorage } from '../utils';
+import { loadStorageData, updateStorage } from '@/common/utils';
+import api from '@/api';
 import LocationList from './LocationList.vue';
-
-import api from '../api';
 
 const location: Ref<string> = ref('');
 const isLocationInvalid: Ref<boolean> = ref(false);

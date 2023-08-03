@@ -13,8 +13,8 @@
 
 <script setup lang='ts'>
 import { Optional, LocationData, WeatherData } from '@/common/types';
+import { loadStorageData } from '@/common/utils';
 import api from '@/api';
-import { loadStorageData } from '@/utils';
 import CityWeatherWidget from './CityWeatherWidget.vue';
 
 const locations: Optional<LocationData[]> = loadStorageData();
