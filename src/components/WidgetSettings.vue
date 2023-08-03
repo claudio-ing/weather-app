@@ -1,7 +1,7 @@
 <template>
   <v-container style="max-width:368px">
     <v-form ref="locationForm">
-      <v-row style="height:55px;">
+      <v-row class="h-55">
         <v-text-field
           v-model="location"
           variant="filled"
@@ -72,3 +72,9 @@ watch(() => currentGeo, (newVal, oldVal) => { addLocation(); }, { deep: true });
 watch(() => locations, (newVal, oldVal) => { updateStorage(newVal.value); }, { deep: true });
 
 </script>
+
+<style scoped>
+.h-55 {
+  height :55px;
+}
+</style>

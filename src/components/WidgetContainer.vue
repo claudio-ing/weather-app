@@ -1,5 +1,5 @@
 <template>
-  <v-container style="max-width:368px">
+  <v-container>
     <div class="d-flex flex-end no-height">
       <router-link to="/settings">
         <v-icon icon="mdi-cog" size="24" class="relative me-1 pb-1 settings-icon"></v-icon>

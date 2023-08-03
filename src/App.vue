@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container>
+    <v-container style="max-width:368px">
       <Suspense>
         <router-view />
       </Suspense>
