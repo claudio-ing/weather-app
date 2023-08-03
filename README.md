@@ -1,11 +1,10 @@
 # weather-app
 
-Created with vue-cli interface adding [typescript plugin](https://cli.vuejs.org/core-plugins/typescript.html):
+Created with vue-cli interface adding [typescript plugin](https://cli.vuejs.org/core-plugins/typescript.html) and [vuetify](https://vuetifyjs.com/en/) Framework.
 
+The app consist in just two pages, whose routes are managed using [vue-router](https://router.vuejs.org/).
 
-```
-vue add typescript
-```
+Geo locations are saved in the local storage and live through different sessions. Weather data are stored using [pinia](https://pinia.vuejs.org/) to optimize API calls and are valid for the single session;
 
 
 ## Project setup

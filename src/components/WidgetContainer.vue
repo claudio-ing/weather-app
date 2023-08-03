@@ -5,26 +5,34 @@
         <v-icon icon="mdi-cog" size="24" class="relative me-1 pb-1 settings-icon"></v-icon>
       </router-link>
     </div>
-    <div v-for="(weather, index) in weatherData" :key="'weather'+index" class="pt-2">
-      <CityWeatherWidget v-if="weather" :weather="weather"></CityWeatherWidget>
+    <div v-for="(weatherStore, index) in weatherStores" :key="'weather'+index" class="pt-2">
+      <WeatherWidget v-if="weatherStore.weatherData" :weather="weatherStore.weatherData">
+      </WeatherWidget>
     </div>
   </v-container>
 </template>
 
 <script setup lang='ts'>
-import { Optional, LocationData, WeatherData } from '@/common/types';
+import { useRouter } from 'vue-router';
+import { Optional, LocationData } from '@/common/types';
 import { loadStorageData } from '@/common/utils';
-import api from '@/api';
-import CityWeatherWidget from './CityWeatherWidget.vue';
+import { WeatherStore, useWeatherStore } from '@/store/weather';
+import WeatherWidget from './WeatherWidget.vue';
 
 const locations: Optional<LocationData[]> = loadStorageData();
 
-const promises: Array<Promise<Optional<WeatherData>>> = [];
+if (!locations) {
+  // Force redirect if no config is set
+  const router = useRouter();
+  router.push({ path: '/settings' });
+}
+
+const promises: Array<Promise<WeatherStore>> = [];
 locations?.forEach((location) => {
-  promises.push(api.getGeoWeather(location.lat, location.lon)); // Create store for this
+  promises.push(useWeatherStore(location));
 });
 
-const weatherData = await Promise.all(promises);
+const weatherStores: WeatherStore[] = await Promise.all(promises);
 </script>
 
 <style>

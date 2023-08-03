@@ -6,7 +6,7 @@
       Extreme Weather Alert
     </v-card-subtitle>
     <v-card-text>
-      <div class="d-flex weather-detail">
+      <div class="d-flex weather-preview">
         <img :src="getIconUrl" height="72" width="72" alt="Weather icon"/>
         <strong class="text-h2 middle pl-2">{{currentTemperature}}&deg;C</strong>
       </div>
@@ -59,10 +59,10 @@ const currentVisibility = computed((): string => (w.visibility / 1000).toFixed(1
 
 <style scoped>
 .middle {
-    vertical-align: middle;
+  vertical-align: middle;
 }
-.weather-detail {
-    line-height: 72px;
-    justify-content: center;
+.weather-preview {
+  line-height: 72px;
+  justify-content: center;
 }
 </style>

@@ -16,6 +16,10 @@ const router = createRouter({ // eslint-disable-line new-cap
       name: 'WidgetSettings',
       component: WidgetSettings,
     },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/',
+    },
   ],
 });
 
